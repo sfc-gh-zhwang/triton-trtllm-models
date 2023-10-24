@@ -1,0 +1,43 @@
+name: "llama2-7B-hf-tp-4_tokenizer"
+backend: "python"
+max_batch_size: 4096
+input [
+    {
+        name: "query"
+        data_type: TYPE_STRING
+        dims: [ 1 ]
+        reshape: { shape: [ ] }
+    },
+    {
+        name: "max_output_len"
+        data_type: TYPE_INT32
+        dims: [ 1 ]
+        reshape: { shape: [ ] }
+    }
+]
+output [
+    {
+        name: "input_ids"
+        data_type: TYPE_INT32
+        dims: [ -1]
+    },
+    {
+        name: "sequence_lengths"
+        data_type: TYPE_INT32
+        dims: [ 1 ]
+    }
+]
+instance_group [
+    {
+        count: 1
+        # Tokenizer only needs CPU
+        kind: KIND_CPU
+    }
+]
+# Max number of tokens(input_token+output_token) supported by the model.
+parameters {
+    key: "max_token_length"
+    value: {
+        string_value: "4096"
+    }
+  }

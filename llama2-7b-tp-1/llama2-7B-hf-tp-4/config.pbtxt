@@ -1,0 +1,82 @@
+name: "llama2-7B-hf-tp-4"
+platform: "ensemble"
+max_batch_size: 4096
+input [
+  {
+    name: "text"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  },
+  {
+    name: "max_output_len"
+    data_type: TYPE_INT32
+    dims: [ 1 ]
+  }
+]
+output [
+  {
+    name: "output"
+    data_type: TYPE_STRING
+    dims: [ -1, -1 ]
+  }
+]
+ensemble_scheduling {
+  step [
+    {
+      model_name: "llama2-7B-hf-tp-4_tokenizer"
+      model_version: -1
+      input_map {
+        key: "query"
+        value: "text"
+      }
+      input_map {
+        key: "max_output_len"
+        value: "max_output_len"
+      }
+      output_map {
+        key: "input_ids"
+        value: "input_ids"
+      }
+      output_map {
+        key: "sequence_lengths"
+        value: "sequence_lengths"
+      }
+    },
+    {
+      model_name: "llama2-7B-hf-tp-4_llama_decoder"
+      model_version: -1
+      input_map {
+        key: "input_ids"
+        value: "input_ids"
+      }
+      input_map {
+        key: "request_output_len"
+        value: "max_output_len"
+      }
+      input_map {
+        key: "input_lengths"
+        value: "sequence_lengths"
+      }
+      output_map {
+        key: "output_ids"
+        value: "output_ids"
+      }
+    },
+    {
+      model_name: "llama2-7B-hf-tp-4_detokenizer"
+      model_version: -1
+      input_map {
+        key: "tokens_batch"
+        value: "output_ids"
+      }
+      input_map {
+        key: "input_sequence_lengths"
+        value: "sequence_lengths"
+      }
+      output_map {
+        key: "output"
+        value: "output"
+      }
+    }
+  ]
+}

@@ -181,10 +181,6 @@ ensemble_scheduling {
         key: "output_ids"
         value: "output_ids"
       }
-      output_map {
-        key: "sequence_length"
-        value: "output_sequence_lengths"
-      }
     },
     {
       model_name: "llama2-7B-hf-tp-4_detokenizer"

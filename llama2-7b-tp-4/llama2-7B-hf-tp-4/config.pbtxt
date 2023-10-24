@@ -49,12 +49,6 @@ input [
     optional: true
   },
   {
-    name: "is_return_log_probs"
-    data_type: TYPE_BOOL
-    dims: [ 1 ]
-    optional: true
-  },
-  {
     name: "beam_width"
     data_type: TYPE_INT32
     dims: [ 1 ]
@@ -152,10 +146,6 @@ ensemble_scheduling {
       input_map {
         key: "random_seed"
         value: "random_seed"
-      }
-      input_map {
-        key: "is_return_log_probs"
-        value: "is_return_log_probs"
       }
       input_map {
         key: "beam_width"

@@ -11,60 +11,6 @@ input [
     name: "max_output_len"
     data_type: TYPE_INT32
     dims: [ 1 ]
-  },
-  {
-    name: "top_k"
-    data_type: TYPE_INT32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "top_p"
-    data_type: TYPE_FP32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "temperature"
-    data_type: TYPE_FP32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "len_penalty"
-    data_type: TYPE_FP32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "repetition_penalty"
-    data_type: TYPE_FP32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "random_seed"
-    data_type: TYPE_UINT64
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "beam_width"
-    data_type: TYPE_INT32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "start_id"
-    data_type: TYPE_INT32
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "end_id"
-    data_type: TYPE_INT32
-    dims: [ 1 ]
-    optional: true
   }
 ]
 output [
@@ -110,42 +56,6 @@ ensemble_scheduling {
       input_map {
         key: "input_lengths"
         value: "sequence_lengths"
-      }
-      input_map {
-        key: "runtime_top_k"
-        value: "top_k"
-      }
-      input_map {
-        key: "runtime_top_p"
-        value: "top_p"
-      }
-      input_map {
-        key: "temperature"
-        value: "temperature"
-      }
-      input_map {
-        key: "len_penalty"
-        value: "len_penalty"
-      }
-      input_map {
-        key: "repetition_penalty"
-        value: "repetition_penalty"
-      }
-      input_map {
-        key: "random_seed"
-        value: "random_seed"
-      }
-      input_map {
-        key: "beam_width"
-        value: "beam_width"
-      }
-      input_map {
-        key: "start_id"
-        value: "start_id"
-      }
-      input_map {
-        key: "end_id"
-        value: "end_id"
       }
       output_map {
         key: "output_ids"

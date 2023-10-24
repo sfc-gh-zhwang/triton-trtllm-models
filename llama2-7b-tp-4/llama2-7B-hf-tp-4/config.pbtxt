@@ -65,18 +65,6 @@ input [
     data_type: TYPE_INT32
     dims: [ 1 ]
     optional: true
-  },
-  {
-    name: "stop_words_list"
-    data_type: TYPE_INT32
-    dims: [ 2, -1 ]
-    optional: true
-  },
-  {
-    name: "bad_words_list"
-    data_type: TYPE_INT32
-    dims: [ 2, -1 ]
-    optional: true
   }
 ]
 output [
@@ -158,14 +146,6 @@ ensemble_scheduling {
       input_map {
         key: "end_id"
         value: "end_id"
-      }
-      input_map {
-        key: "stop_words_list"
-        value: "stop_words_list"
-      }
-      input_map {
-        key: "bad_words_list"
-        value: "bad_words_list"
       }
       output_map {
         key: "output_ids"

@@ -179,6 +179,10 @@ ensemble_scheduling {
         key: "tokens_batch"
         value: "output_ids"
       }
+      input_map {
+        key: "input_sequence_lengths"
+        value: "sequence_lengths"
+      }
       output_map {
         key: "output"
         value: "output"

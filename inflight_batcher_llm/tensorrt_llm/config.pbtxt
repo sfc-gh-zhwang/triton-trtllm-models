@@ -173,7 +173,7 @@ parameters: {
 parameters: {
   key: "gpt_model_path"
   value: {
-    string_value: "/models/tensorrt_engines/llama7b_tp1"
+    string_value: "/models/triton-trtllm/llama2-7B-hf-tp-4_llama_decoder/1/4-gpu"
   }
 }
 parameters: {

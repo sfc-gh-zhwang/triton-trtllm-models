@@ -24,7 +24,7 @@ output [
     {
         name: "sequence_lengths"
         data_type: TYPE_INT32
-        dims: [ 1 ]
+        dims: [ -1 ]
     }
 ]
 instance_group [

@@ -42,11 +42,13 @@ input [
    name: "bad_words"
    data_type: TYPE_STRING
    dims: [ -1 ]
+   optional: true
   },
   {
    name: "stop_words"
    data_type: TYPE_STRING
    dims: [ -1 ]
+   optional: true
   },
   {
     name: "end_id"

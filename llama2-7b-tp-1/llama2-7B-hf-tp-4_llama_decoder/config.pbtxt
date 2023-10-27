@@ -147,7 +147,8 @@ parameters: {
 parameters: {
   key: "gpt_model_path"
   value: {
-    string_value: "/models/tensorrt_engines/llama7b_tp1_quant"
+    #string_value: "/models/tensorrt_engines/llama7b_tp1_quant" # int8
+    string_value: "/models/tensorrt_engines/llama7b_tp1" # fp16
   }
 }
 parameters: {

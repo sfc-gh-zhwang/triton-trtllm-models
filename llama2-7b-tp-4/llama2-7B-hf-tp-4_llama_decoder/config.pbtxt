@@ -16,7 +16,7 @@ input [
     name: "input_lengths"
     data_type: TYPE_INT32
     dims: [ -1 ]
-    reshape: { shape: [ ] }
+    # reshape: { shape: [ ] }
   },
   {
     name: "request_output_len"

@@ -147,7 +147,7 @@ parameters: {
 parameters: {
   key: "gpt_model_path"
   value: {
-    string_value: "/models/tensorrt_engines/llama7b_tp4"
+    string_value: "/models/tensorrt_engines/llama-chat-7b_tp4"
   }
 }
 parameters: {
